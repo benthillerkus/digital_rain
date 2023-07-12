@@ -1,0 +1,13 @@
+name: digital_rain
+description: wake up, neo.
+publish_to: 'none' # Remove this line if you wish to publish to pub.devversion: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  vector_math:
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
