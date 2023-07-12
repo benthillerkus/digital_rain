@@ -21,14 +21,17 @@ class DigitalRain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return _DigitalRainExtreme(
-        atlas: atlas,
-        size: constraints.biggest,
-        particles: particles,
-        streaks: streaks,
-      );
-    });
+    return ColoredBox(
+      color: const Color.fromARGB(255, 0, 0, 0),
+      child: LayoutBuilder(builder: (context, constraints) {
+        return _DigitalRainExtreme(
+          atlas: atlas,
+          size: constraints.biggest,
+          particles: particles,
+          streaks: streaks,
+        );
+      }),
+    );
   }
 }
 

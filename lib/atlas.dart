@@ -15,7 +15,15 @@ class AtlasData {
       fontSize: 32,
       color: Color.fromRGBO(255, 255, 255, 1),
       shadows: [Shadow(blurRadius: 8, color: Color.fromRGBO(0, 255, 170, 1))],
-      fontFamily: "monospace",
+      fontFamily: "VT323",
+      fontFamilyFallback: [
+        "Menlo",
+        "Consolas",
+        "Monaco",
+        "Liberation Mono",
+        "Lucida Console",
+        "monospace"
+      ],
     ),
   }) : _chars = chars;
 
@@ -38,11 +46,10 @@ class AtlasData {
     return await picture.toImage(size.width.toInt(), size.height.toInt());
   }
 
-    Offset offsetOfIndex(int index, Size size) {
+  Offset offsetOfIndex(int index, Size size) {
     return Offset(
       (index * style.fontSize!) % size.width,
-      ((index * style.fontSize!) / size.height).floor() *
-          style.fontSize!,
+      ((index * style.fontSize!) / size.height).floor() * style.fontSize!,
     );
   }
 
@@ -93,11 +100,11 @@ class Atlas {
   Glyph random() {
     final index = _random.nextInt(length);
     return (
-        char: runes[index],
-        style: data.style,
-        offset: offsetOfIndex(index),
-        size: Size.square(data.style.fontSize!),
-      );
+      char: runes[index],
+      style: data.style,
+      offset: offsetOfIndex(index),
+      size: Size.square(data.style.fontSize!),
+    );
   }
 
   Glyph operator [](int index) => (
